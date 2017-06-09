@@ -3,7 +3,7 @@ sown=random.randint(0,999999)
 random.seed(sown)
 side=800
 #opening
-open("/art/"+str(sown)+".svg","w").write('<svg width="'+str(side)+'px" height="'+str(side)+'px" version="1.1" xmlns="http://www.w3.org/2000/svg">\n<desc>')
+open("/art/"+str(sown)+".svg","w+").write('<svg width="'+str(side)+'px" height="'+str(side)+'px" version="1.1" xmlns="http://www.w3.org/2000/svg">\n<desc>')
 open("/art/"+str(sown)+".svg","a").write(str(sown)+"</desc>")
 #how many items do i draw?
 max=random.randint(1,99)
