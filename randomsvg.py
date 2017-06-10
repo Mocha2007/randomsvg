@@ -9,7 +9,7 @@ def rndcol():
 	colors=["black","blue","brown","chartreuse","cyan","green","grey","navy","none","orange","pink","purple","red","tan","white","yellow"]
 	return random.choice(colors)
 def rndstr():
-	char=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',"'"]+[' ']*9
+	char=['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z',"'"]+[' ']*9+['a','e','i','o','u']*3
 	length=random.randint(1,99)
 	string=''
 	for i in range(length):
@@ -19,7 +19,7 @@ def rndpts():
 	x=int(rndpos())
 	y=int(rndpos())
 	chain=""
-	for i in range(random.randint(3,9999)):
+	for i in range(random.randint(3,999)):
 		if random.random()>.5:
 			x+=random.choice([-1,1])
 		else:
@@ -59,6 +59,6 @@ def paint():
 			transform-=1
 	#end
 	open("art/"+str(sown)+".svg","w+").write(please+'\n</svg>')
-for i in range(10):
+for i in range(100):
 	print("Picasso is painting image "+str(i))
 	paint()
