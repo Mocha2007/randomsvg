@@ -55,7 +55,7 @@ def paint():
 		elif c=="line":please+='\n<line x1="'+rndpos()+'" y1="'+rndpos()+'" x2="'+rndpos()+'" y2="'+rndpos()+'" stroke="'+rndcol()+'" stroke-width="2"/>'
 		elif c=="rect":please+='\n<rect x="'+rndpos()+'" y="'+rndpos()+'" width="'+rndpos()+'" height="'+rndpos()+'" fill="'+rndcol()+'"/>'
 		elif c=="text":please+='\n<text x="'+rndpos()+'" y="'+rndpos()+'" font-family="Verdana" font-size="48" fill="'+rndcol()+'">\n\t'+rndstr()+'\n</text>'
-		elif c=="polyline":please+='\n<polyline stroke="'+rndcol()+'" stroke-width="2" points=\n"'+rndpts()+'"/>'
+		#elif c=="polyline":please+='\n<polyline stroke="'+rndcol()+'" stroke-width="2" points=\n"'+rndpts()+'"/>'
 		while transform!=0:
 			please+='\n</g>'
 			transform-=1
