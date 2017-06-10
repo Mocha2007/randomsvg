@@ -16,9 +16,9 @@ def paint():
 	please='<?xml version="1.0" standalone="no"?>\n<svg width="'+str(side)+'" height="'+str(side)+'" version="1.1" xmlns="http://www.w3.org/2000/svg">\n<desc>'+str(sown)+"</desc>"
 	#space
 	please+='\n<rect x="0" y="0" width="'+str(side)+'" height="'+str(side)+'" fill="black"/>'
-	for i in range(99):
+	for i in range(222):
 		#shapes
-		please+='\n<circle cx="'+str(rndpos())+'" cy="'+str(rndpos())+'" r="'+str(random.randint(1,2))+'" fill="'+rndcol()+'"/>'
+		please+='\n<circle cx="'+str(rndpos())+'" cy="'+str(rndpos())+'" r="'+str(2*random.random())+'" fill="'+rndcol()+'"/>'
 	#how many items do i draw?
 	max=999#random.randint(99,999)
 	for i in range(max):
