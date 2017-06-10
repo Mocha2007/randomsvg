@@ -31,10 +31,7 @@ options=["rect","circle","ellipse","line","text","polyline"]
 def paint():
 	sown=random.randint(0,999999)
 	random.seed(sown)
-	#opening
-	open("art/"+str(sown)+".svg","w+").write('<?xml version="1.0" standalone="no"?>')
-	open("art/"+str(sown)+".svg","a").write('<svg width="'+str(side)+'" height="'+str(side)+'" version="1.1" xmlns="http://www.w3.org/2000/svg">\n<desc>')
-	open("art/"+str(sown)+".svg","a").write(str(sown)+"</desc>")
+	please='<?xml version="1.0" standalone="no"?>\n<svg width="'+str(side)+'" height="'+str(side)+'" version="1.1" xmlns="http://www.w3.org/2000/svg">\n<desc>'+str(sown)+"</desc>"
 	#how many items do i draw?
 	max=random.randint(1,99)
 	for i in range(max):
@@ -42,32 +39,26 @@ def paint():
 		transform=0
 		if random.random()>.2:
 			transform+=1
-			open("art/"+str(sown)+".svg","a").write('\n<g transform="rotate('+rndang()+')">')
+			please+='\n<g transform="rotate('+rndang()+')">'
 		if random.random()>.2:
 			transform+=1
-			open("art/"+str(sown)+".svg","a").write('\n<g transform="skewX('+rndang()+')">')
+			please+='\n<g transform="skewX('+rndang()+')">'
 		if random.random()>.2:
 			transform+=1
-			open("art/"+str(sown)+".svg","a").write('\n<g transform="skewY('+rndang()+')">')
+			please+='\n<g transform="skewY('+rndang()+')">'
 		#shapes
 		c=random.choice(options)
-		if c=="circle":
-			open("art/"+str(sown)+".svg","a").write('\n<circle cx="'+rndpos()+'" cy="'+rndpos()+'" r="'+rndpos()+'" fill="'+rndcol()+'"/>')
-		elif c=="ellipse":
-			open("art/"+str(sown)+".svg","a").write('\n<ellipse cx="'+rndpos()+'" cy="'+rndpos()+'" rx="'+rndpos()+'" ry="'+rndpos()+'" fill="'+rndcol()+'"/>')
-		elif c=="line":
-			open("art/"+str(sown)+".svg","a").write('\n<line x1="'+rndpos()+'" y1="'+rndpos()+'" x2="'+rndpos()+'" y2="'+rndpos()+'" stroke="'+rndcol()+'" stroke-width="2"/>')
-		elif c=="rect":
-			open("art/"+str(sown)+".svg","a").write('\n<rect x="'+rndpos()+'" y="'+rndpos()+'" width="'+rndpos()+'" height="'+rndpos()+'" fill="'+rndcol()+'"/>')
-		elif c=="text":
-			open("art/"+str(sown)+".svg","a").write('\n<text x="'+rndpos()+'" y="'+rndpos()+'" font-family="Verdana" font-size="48" fill="'+rndcol()+'">\n\t'+rndstr()+'\n</text>')
-		elif c=="polyline":
-			open("art/"+str(sown)+".svg","a").write('\n<polyline stroke="'+rndcol()+'" stroke-width="2" points=\n"'+rndpts()+'"/>')
+		if c=="circle":please+='\n<circle cx="'+rndpos()+'" cy="'+rndpos()+'" r="'+rndpos()+'" fill="'+rndcol()+'"/>'
+		elif c=="ellipse":please+='\n<ellipse cx="'+rndpos()+'" cy="'+rndpos()+'" rx="'+rndpos()+'" ry="'+rndpos()+'" fill="'+rndcol()+'"/>'
+		elif c=="line":please+='\n<line x1="'+rndpos()+'" y1="'+rndpos()+'" x2="'+rndpos()+'" y2="'+rndpos()+'" stroke="'+rndcol()+'" stroke-width="2"/>'
+		elif c=="rect":please+='\n<rect x="'+rndpos()+'" y="'+rndpos()+'" width="'+rndpos()+'" height="'+rndpos()+'" fill="'+rndcol()+'"/>'
+		elif c=="text":please+='\n<text x="'+rndpos()+'" y="'+rndpos()+'" font-family="Verdana" font-size="48" fill="'+rndcol()+'">\n\t'+rndstr()+'\n</text>'
+		elif c=="polyline":please+='\n<polyline stroke="'+rndcol()+'" stroke-width="2" points=\n"'+rndpts()+'"/>'
 		while transform!=0:
-			open("art/"+str(sown)+".svg","a").write('\n</g>')
+			please+='\n</g>'
 			transform-=1
 	#end
-	open("art/"+str(sown)+".svg","a").write('\n</svg>')
+	open("art/"+str(sown)+".svg","w+").write(please+'\n</svg>')
 for i in range(10):
 	print("Picasso is painting image "+str(i))
 	paint()
