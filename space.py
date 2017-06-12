@@ -19,12 +19,12 @@ def paint():
 		#shapes
 		please+='\n<circle cx="'+str(rndpos())+'" cy="'+str(rndpos())+'" r="'+str(2*random.random())+'" fill="#fff"/>'
 	#how many items do i draw?
-	max=2222
+	max=999
 	for i in range(max):
 		#transformations
 		please+='\n<g transform="rotate('+rndang()+')">\n<g transform="skewX('+rndang()+')">\n<g transform="skewY('+rndang()+')">'
 		#shapes
-		w=str(rndpos()/(max-i))
+		w=str(4*rndpos()/(max-i))
 		please+='\n<image x="'+str(rndpos())+'" y="'+str(rndpos())+'" width="'+w+'" height="'+w+'" xlink:href="'+rndimg()+'"></image>'
 		for i in range(3):
 			please+='\n</g>'
